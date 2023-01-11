@@ -1,14 +1,30 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:task_1/color_page.dart';
 
-class LastPage extends StatefulWidget {
-  const LastPage({Key? key}) : super(key: key);
+class LastPage extends StatelessWidget {
+  final int count;
 
-  @override
-  State<LastPage> createState() => _LastPageState();
-}
+  const LastPage(this.count);
 
-class _LastPageState extends State<LastPage> {
+//Remark Logic
+  String get resultPhrase {
+    String resultText;
+    if (count == 3) {
+      resultText = 'You are awesome!';
+      print(count);
+    } else if (count == 2) {
+      resultText = 'You Are Intermediate';
+      print(count);
+    } else if (count == 1) {
+      resultText = 'You Are Bad';
+    }  else {
+      resultText = 'You are so Bad';
+    }
+    return resultText;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +37,7 @@ class _LastPageState extends State<LastPage> {
           child: Column(
             children: [
               Text(
-                "You are So Bad",
+                resultPhrase,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               TextButton(
