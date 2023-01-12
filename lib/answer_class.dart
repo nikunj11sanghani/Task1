@@ -5,7 +5,7 @@ class Counter extends StatelessWidget {
   final Function onpressed;
 
 
-  Counter(this.answerText, this.onpressed);
+  const Counter(this.answerText, this.onpressed, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

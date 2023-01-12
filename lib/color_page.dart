@@ -15,7 +15,7 @@ class _FirstPageState extends State<FirstPage> {
   bool endofquiz = null;
   bool answerwasselected = false;
 
-  void Clickit(bool answerscore) {
+  void clickit(bool answerscore) {
     setState(() {
       answerwasselected = true;
       if (answerscore) {
@@ -29,7 +29,6 @@ class _FirstPageState extends State<FirstPage> {
       } else {
         quindex++;
       }
-      print(count);
     });
   }
 
@@ -84,8 +83,7 @@ class _FirstPageState extends State<FirstPage> {
               ...(arrquestion[quindex]['answer'] as List<Map<String, Object>>)
                   .map(
                 (answer) => Counter(answer['answerText'], () {
-                  Clickit(answer['score']);
-                  print(answer);
+                  clickit(answer['score']);
                 }),
               ),
             ],

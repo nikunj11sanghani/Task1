@@ -7,16 +7,15 @@ class LastPage extends StatelessWidget {
   final int count;
 
   const LastPage(this.count);
-
-//Remark Logic
-  String get resultPhrase {
+// first i used (String get resultPhrase) but then i make a simple function which returns the text
+  String resultPhrase(){
     String resultText;
     if (count == 3) {
       resultText = 'You are awesome!';
-      print(count);
+      // print(count);
     } else if (count == 2) {
       resultText = 'You Are Intermediate';
-      print(count);
+      // print(count);
     } else if (count == 1) {
       resultText = 'You Are Bad';
     }  else {
@@ -24,6 +23,21 @@ class LastPage extends StatelessWidget {
     }
     return resultText;
   }
+//   String get resultPhrase {
+//     String resultText;
+//     if (count == 3) {
+//       resultText = 'You are awesome!';
+//       // print(count);
+//     } else if (count == 2) {
+//       resultText = 'You Are Intermediate';
+//       // print(count);
+//     } else if (count == 1) {
+//       resultText = 'You Are Bad';
+//     }  else {
+//       resultText = 'You are so Bad';
+//     }
+//     return resultText;
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +47,20 @@ class LastPage extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: Container(
-          child: Column(
-            children: [
-              Text(
-                resultPhrase,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FirstPage()));
-                },
-                child: Text("Restart Quiz"),
-              )
-            ],
-          ),
+        child: Column(
+          children: [
+            Text(
+              resultPhrase(),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FirstPage()));
+              },
+              child: Text("Restart Quiz"),
+            )
+          ],
         ),
       ),
     );
