@@ -10,20 +10,20 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-  int quindex = 0;
-  int count = 0;
-  bool endofquiz = null;
-  bool answerwasselected = false;
+  int quindex = 0; // for the next question increase the index
+  int count = 0; // for the score you have won and base on that you get result
+  bool endofquiz = null; // when the endofquiz is tre then we navigate on result page
+  bool answerwasselected = false; // if it is true then we get our index increment
 
   void clickit(bool answerscore) {
-    setState(() {
+    setState(() { // this is because we want to change the state
       answerwasselected = true;
       if (answerscore) {
-        count++;
+        count++;// if your answer match with your correct answer then you get your score + 1
       }
       if (quindex == (arrquestion.length - 1)) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LastPage(
+        Navigator.push( // after the last question you will navigate to result page
+             context, MaterialPageRoute(builder: (context) => LastPage(
           count
         )));
       } else {
@@ -83,7 +83,8 @@ class _FirstPageState extends State<FirstPage> {
               ...(arrquestion[quindex]['answer'] as List<Map<String, Object>>)
                   .map(
                 (answer) => Counter(answer['answerText'], () {
-                  clickit(answer['score']);
+                  clickit(answer['score']); //clickit function has one parameter
+                                            // which collects the answer and if it is match with your function then you get your score+
                 }),
               ),
             ],

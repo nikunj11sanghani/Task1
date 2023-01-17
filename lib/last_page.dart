@@ -23,19 +23,7 @@ class LastPage extends StatelessWidget {
     }
     return resultText;
   }
-//   String get resultPhrase {
-//     String resultText;
-//     if (count == 3) {
-//       resultText = 'You are awesome!';
-//       // print(count);
-//     } else if (count == 2) {
-//       resultText = 'You Are Intermediate';
-//       // print(count);
-//     } else if (count == 1) {
-//       resultText = 'You Are Bad';
-//     }  else {
-//       resultText = 'You are so Bad';
-//     }
+//  }
 //     return resultText;
 //   }
 
