@@ -1,34 +1,18 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:task_1/color_page.dart';
+import 'package:provider/provider.dart';
+import 'package:task_1/handle_class.dart';
+import 'package:task_1/main.dart';
 
 class LastPage extends StatelessWidget {
   final int count;
 
   const LastPage(this.count);
-// first i used (String get resultPhrase) but then i make a simple function which returns the text
-  String resultPhrase(){
-    String resultText;
-    if (count == 3) {
-      resultText = 'You are awesome!';
-      // print(count);
-    } else if (count == 2) {
-      resultText = 'You Are Intermediate';
-      // print(count);
-    } else if (count == 1) {
-      resultText = 'You Are Bad';
-    }  else {
-      resultText = 'You are so Bad';
-    }
-    return resultText;
-  }
-//  }
-//     return resultText;
-//   }
 
   @override
   Widget build(BuildContext context) {
+    String result = Provider.of<Handle>(context).resultPhrase;
     return Scaffold(
       appBar: AppBar(
         title: Text("Favorite Quiz"),
@@ -38,13 +22,13 @@ class LastPage extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              resultPhrase(),
+              result,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FirstPage()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
               },
               child: Text("Restart Quiz"),
             )
